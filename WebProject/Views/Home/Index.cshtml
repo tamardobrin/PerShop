@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebProject.Models.Animal>
+@{
+	ViewBag.Title = "Home Page";
+}
+<style>
+	* {
+		text-align: center;
+    font-family: 'Baloo 2', cursive;
+
+	}
+</style>
+<h1 class="display-2">Welcome to my pet shop</h1>
+<h3>The two most highly rated pets today are:</h3>
+<table class="table">
+	<tr>
+		<th>Picture</th>
+		<th>Name</th>
+		<th>Number of comments</th>
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td class="display-3"><img width="200" height="200" src=@item.PictureName /></td>
+			<td class="display-3">@item.Name</td>
+			<td class="display-3">@item.Comments!.Count</td>
+		</tr>
+	}
+</table>
+<span>
+	@for(var i = 0; i < 10; i++)
+ { <img src="https://pic.onlinewebfonts.com/svg/img_233291.png" style="margin:10px;margin-bottom: 20px;" width="35" height="35" class="d-inline-block align-top" alt="" />}
+  </span> 
+<h1 class="display-5">5 REASONS TO ADOPT, NOT SHOP</h1>
+<p>Every year, approximately 6.5 million pets enter animal shelters nationwide, and 1.5 million become euthanized. And with the current shelter crisis, numbers are on the rise. But you can help! Not only are pets scientifically proven to reduce stress levels and improve blood pressure, but no one can offer the unconditional love and companionship a pet can.</p>
+<h2>ADOPTING MEANS YOU SAVE A LIFE!</h2>
+<p>Too often, shelters euthanize animals due to room constraints, but if more people adopted pets instead of buying them, the number of pets euthanized would lower dramatically. When you adopt, not only do you save your loving new companion, but you make space for other animals who desperately need it, creating a domino effect of goodness.</p>
+<h2>IT’S A WAY TO COMBAT PUPPY MILLS</h2>
+<p>“Puppy mill” sounds cute until you find out they are factory-style breeding facilities that often prioritize profit over animal welfare. Housed in poor conditions with little to no medical care, the animals in these mills suffer greatly. The puppies from these mills are often sick or traumatized and the mothers discarded once they’re no longer “profitable.” When a family buys a dog from a pet store, it’s almost certainly a puppy mill dog. When you adopt, you’re saying no to an awful practice and keeping money out of their pockets.</p>
+<h2>ADOPTING IS MORE AFFORDABLE</h2>
+<p>Buying a pet is not cheap. Prices range from $500 to $1,000 or more! And that does not include the cost of spay/neuter, first vaccinations or microchipping. Adoption fees rarely break $200 and often include all those post-adoption amenities. A bargain when you consider you’ll be bringing home the companion of a lifetime!</p>
+<h2>TRAINING CAN BE EASIER</h2>
+<p>While some shelter animals come in as strays, many end up there because of human problems like a move or divorce, not because the animal wasn’t a good pet. Many are already house-trained and used to living with families, so training comes more naturally. </p>
+<h2>YOU GET A SUPPORT SYSTEM</h2>
+<p>When you get a dog from a pet store, the transaction usually ends once you exit the door. Many pet stores don’t have the resources or knowledge to provide any support if you have questions or problems with your new pet. However, shelters and rescue groups usually have history on the animal, and the volunteers get to know the animal’s personality and likes and dislikes. This helps ease the transition, and more often than not, shelters are happy to help you through the introductory period because they care that the animal goes to a happy home.</p>
+
+

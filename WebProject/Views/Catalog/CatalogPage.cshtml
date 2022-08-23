@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WebProject.Models.Animal>
+
+@{
+	ViewBag.Title = "CatalogPage";
+}
+<style>
+	*{
+    font-family: 'Baloo 2', cursive;
+
+	}
+	h1{
+		text-align: center;
+	}
+</style>
+
+<h1>Your home for food and accessories for pets</h1>
+<div class="dropdown">
+	<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+		Category
+	</button>
+	<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+		<li class="dropdown-item">@Html.ActionLink("Cats", "CatalogPage","Catalog", new {categoryId=1})</li>
+		<li class="dropdown-item">@Html.ActionLink("Fish", "CatalogPage","Catalog", new {categoryId=2})</li>
+		<li class="dropdown-item">@Html.ActionLink("Rodents", "CatalogPage","Catalog", new {categoryId=3})</li>
+		<li class="dropdown-item">@Html.ActionLink("All", "CatalogPage","Catalog", new {categoryId=0})</li>
+	</ul>
+</div>
+
+<table class="table">
+	<tr>
+		<th>Picture</th>
+		<th>Name</th>
+		<th>fing out more and comments</th>
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td class="display-3"><img width="200" height="200" src=@item.PictureName /></td>
+			<td class="display-3">@item.Name</td>
+			<td class="display-4"> @Html.ActionLink("More Info", "AnimalPage","Catalog", new {id=item.Id})</td>
+		</tr>
+	}
+</table>
+

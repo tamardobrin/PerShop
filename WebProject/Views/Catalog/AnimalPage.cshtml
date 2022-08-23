@@ -1,0 +1,195 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model WebProject.Models.Animal
+
+@{
+	ViewData["Title"] = "AnimalPage";
+	 Random rnd = new Random();
+}
+<style>
+
+
+	.body {
+		display: grid;
+		place-items: center;
+		font-family: 'Manrope', sans-serif;
+
+	}
+
+	.card {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+		padding: 20px;
+		width: 450px;
+		word-wrap: break-word;
+		background-clip: border-box;
+		border-radius: 6px;
+		-moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1);
+		background-color: #e7ddd8;
+		margin-bottom: 20px;
+	}
+
+	.comment-box {
+		padding: 5px;
+	}
+
+
+
+	.comment-area textarea {
+		resize: none;
+		border: 1px solid #ad9f9f;
+	}
+
+
+	.form-control:focus {
+		color: #495057;
+		background-color: #fff;
+		border-color: #ffffff;
+		outline: 0;
+		box-shadow: 0 0 0 1px rgb(255, 0, 0) !important;
+	}
+
+	.rating {
+		display: flex;
+		margin-top: -10px;
+		flex-direction: row-reverse;
+		margin-left: -4px;
+		float: left;
+	}
+
+		.rating > input {
+			display: none
+		}
+
+		.rating > label {
+			position: relative;
+			width: 19px;
+			font-size: 25px;
+			color: green;
+			cursor: pointer;
+		}
+
+			.rating > label::before {
+				content: "\2605";
+				position: absolute;
+				opacity: 0
+			}
+
+			.rating > label:hover:before,
+			.rating > label:hover ~ label:before {
+				opacity: 1 !important
+			}
+
+		.rating > input:checked ~ label:before {
+			opacity: 1
+		}
+
+		.rating:hover > input:checked ~ label:before {
+			opacity: 0.4
+		}
+</style>
+
+
+
+<!-- Product section-->
+<section class="py-5">
+	<div class="container px-4 px-lg-5 my-5">
+		<div class="row gx-4 gx-lg-5 align-items-center">
+			<div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src=@Model.PictureName alt="..." /></div>
+			<div class="col-md-6">
+				<h1 class="display-5 fw-bolder">@Model.Name</h1>
+				<div class="fs-5 mb-5">
+					<span>$@Model.Price</span>
+				</div>
+				<p class="lead">@Model.Description</p>
+				<div class="d-flex">
+					<button class="btn btn-outline-dark flex-shrink-0" type="button">
+						<i class="bi-cart-fill me-1"></i>
+						Add to cart
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<div class="body">
+	<div class="card">
+
+		<div class="row">
+			<div class="col-2">
+				<img src="https://cdn-icons-png.flaticon.com/512/4329/4329263.png" width="70" class="rounded-circle mt-2">
+			</div>
+			<div class="col-10">
+				<div class="comment-box ml-2">
+					<h4>Add a comment</h4>
+					<div class="rating">
+						<input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+						<input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+						<input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+						<input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+						<input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+					</div>
+					<form method="post" asp-action="AddComment">
+						<div class="comment-area">
+							<input name="AnimalId" type="hidden" value="@Model.Id" />
+							<textarea name="CommentMessage" class="form-control" placeholder="what is your view?" rows="4"></textarea>
+						</div>
+						<div class="comment-btns mt-2">
+							<div class="row">
+								<div class="col-6">
+									<div class="pull-left">
+										<input type="submit" id="send" value="send" class="btn btn-outline-dark" />
+									</div>
+								</div>
+								<div class="col-6">
+									<div class="pull-right">
+										<button type="button" id="cancel" class="btn btn-outline-danger">Cancel</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div>
+	<ul class="list-group  float-left">
+		@foreach (var item in Model.Comments!)
+		{
+			 <li class="card mb-4">
+          <div class="card-body">
+            <p>@item.Content</p>
+
+            <div class="d-flex justify-content-between">
+              <div class="d-flex flex-row align-items-center">
+                <p id="date-time" class="small mb-0 ms-2"></p>
+              </div>
+              <div class="d-flex flex-row align-items-center">
+                <p class="small text-muted mb-0" id="word">Upvote?</p>
+               <a href="#"> <i class="far fa-thumbs-up mx-2 fa-xs text-black" style="margin-top: -0.16rem;"></i> </a>
+                <p class="small text-muted mb-0" id="likes">@rnd.Next(10, 50)</p>
+              </div>
+            </div>
+          </div>
+        </li>
+		}
+	</ul>
+</div>
+ 
+
+<script>
+	var currentLikes=$("#likes").val();
+	$(function(){
+		$("#cancel").click(function() {
+		$("textarea").val("");
+		});
+	});
+</script>
+
+

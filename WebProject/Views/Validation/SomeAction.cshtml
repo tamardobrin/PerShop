@@ -1,0 +1,50 @@
+﻿@model IEnumerable<WebProject.Models.Animal>
+
+@{
+	ViewBag.Title = "SomeAction";
+}
+<style>
+    #addAnimalForm {
+    margin-bottom: 35px;
+    margin-top: 30px;
+}
+.dropdown{
+	margin: 10px;
+}
+
+</style>
+<div class="dropdown">
+	<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+		Category
+	</button>
+	<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+		<li class="dropdown-item">@Html.ActionLink("Cats", "FilterForAdminPage","Validation", new {categoryId=1})</li>
+		<li class="dropdown-item">@Html.ActionLink("Fish", "FilterForAdminPage","Validation", new {categoryId=2})</li>
+		<li class="dropdown-item">@Html.ActionLink("Rodents", "FilterForAdminPage","Validation", new {categoryId=3})</li>
+		<li class="dropdown-item">@Html.ActionLink("All", "FilterForAdminPage","Validation", new {categoryId=0})</li>
+	</ul>
+</div>
+
+<table class="table">
+	<tr>
+		<th>Picture</th>
+		<th>id</th>
+		<th>Name</th>
+		<th>actions</th>
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td><img width="200" height="200" src=@item.PictureName /></td>
+			<td>@item.Id</td>
+			<td>@item.Name</td>
+			<td>
+				@Html.ActionLink("Edit", "Edit", "Admin", new { id = @item.Id }) |
+				@Html.ActionLink("Delete", "Delete", "Admin", new { id = @item.Id })
+			</td>
+		</tr>
+	}
+</table>
+  <div class="btn btn-outline-dark">
+@Html.ActionLink("Press here to add animals", "AddAnimalPage","Admin")
+        </div>

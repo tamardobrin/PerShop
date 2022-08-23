@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Noto+Sans:wght@200&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+    <link href="~/styles/external.css" rel="stylesheet" />
+     <script src="~/scripts/example.js"></script>
+     <script src="~/scripts/jquery.js"></script>
+     <script src="~/scripts/jquery.validate.min-1.17.0.js"></script> 
+     <script src="~/scripts/jquery.validate.unobtrusive.min-3.2.10.js"></script> 
+        <script src="https://kit.fontawesome.com/208fbb02fc.js" crossorigin="anonymous"></script>
+     <!-- JavaScript Bundle with Popper -->
+   <script src="https://cdn.jsdelivr.net/npm/@@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <img src="https://pic.onlinewebfonts.com/svg/img_233291.png" width="27" height="27" class="d-inline-block align-top" alt="" />
+  <a class="navbar-brand" href="#">My Pet Shop</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/Home/Index">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/Catalog/CatalogPage">Catalog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/Validation/ValidationAction">Admin</a>
+      </li>
+    </ul>
+  </div>
+
+<img src="~/images/android-chrome-512x512.png" class="float-right" alt="my Logo" height="50" width="50" style="margin-right: 15px;">
+</nav>
+    <div class="container">
+        @RenderBody()
+    </div>
+
+ 
+  <footer class="text-center text-white" style="background-color: #f1f1f1; ">
+  <!-- Grid container -->
+  <div class="container pt-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="https://twitter.com/theanimalstore"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+     
+      <!-- Instagram -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="https://www.instagram.com/petsuppliesplus/"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="https://il.linkedin.com/in/tamar-dobrin-47a3a6235?trk=public_profile_browsemap"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-linkedin"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2022 Copyright:
+    <a class="text-dark" href="https://mdbootstrap.com/">Tamar Dobrin</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+</body>
+</html>
